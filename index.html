@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>✦ DIX FOIS TOI — 10 Meses ✦</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#05030b;
+    --bg2:#0b0615;
+    --purple:#9d6cff;
+    --purple2:#c7a5ff;
+    --pink:#ff8fd8;
+    --gold:#e8c98a;
+    --white:#f8f2ff;
+    --muted:#b7a9c9;
+    --card:rgba(20,12,35,.72);
+    --line:rgba(199,165,255,.18);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 50% 10%, rgba(116,58,184,.22), transparent 32%),
+        radial-gradient(circle at 10% 70%, rgba(255,79,177,.08), transparent 28%),
+        radial-gradient(circle at 90% 50%, rgba(113,75,255,.10), transparent 30%),
+        var(--bg);
+    color:var(--white);
+    font-family:"Cormorant Garamond",serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   CIELO
+========================= */
+
+#stars,
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#fff;
+    border-radius:50%;
+    opacity:.65;
+    animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.2; transform:scale(.7)}
+    to{opacity:1; transform:scale(1.5)}
+}
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:rgba(199,165,255,.6);
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+    15%{opacity:.8}
+    85%{opacity:.4}
+    to{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:35px 20px;
+    position:relative;
+}
+
+.moon{
+    position:absolute;
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%, #fff9ff, #dccdff 45%, #9875c8 100%);
+    box-shadow:
+        0 0 40px rgba(211,187,255,.35),
+        0 0 120px rgba(142,91,255,.15);
+    top:9%;
+    right:9%;
+    opacity:.72;
+}
+
+.moon:after{
+    content:"";
+    position:absolute;
+    width:185px;
+    height:185px;
+    background:var(--bg);
+    border-radius:50%;
+    top:-12px;
+    left:40px;
+}
+
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
+
+.small{
+    letter-spacing:6px;
+    text-transform:uppercase;
+    font-family:Cinzel,serif;
+    font-size:.7rem;
+    color:var(--gold);
+    margin-bottom:28px;
+}
+
+.hero h1{
+    font-family:Cinzel,serif;
+    font-size:clamp(2.2rem,8vw,6rem);
+    line-height:1.05;
+    letter-spacing:4px;
+    background:linear-gradient(
+        120deg,
+        #fff,
+        #cbb1ff,
+        #ffb1e3,
+        #fff
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:shine 7s linear infinite;
+}
+
+@keyframes shine{
+    0%{background-position:0%}
+    100%{background-position:300%}
+}
+
+.subtitle{
+    margin:25px auto;
+    font-size:clamp(1.25rem,4vw,1.8rem);
+    color:#ded1ee;
+}
+
+.date{
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    letter-spacing:3px;
+    font-size:.85rem;
+}
+
+.hero-heart{
+    margin:50px auto 30px;
+    width:75px;
+    height:75px;
+    transform:rotate(45deg);
+    border-radius:14px;
+    border:1px solid rgba(255,143,216,.5);
+    box-shadow:
+        0 0 25px rgba(255,103,192,.35),
+        inset 0 0 20px rgba(157,108,255,.15);
+    animation:heartbeat 2.2s infinite;
+}
+
+.hero-heart:before,
+.hero-heart:after{
+    content:"";
+    position:absolute;
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    border:1px solid rgba(255,143,216,.5);
+}
+
+.hero-heart:before{
+    left:-38px;
+}
+
+.hero-heart:after{
+    top:-38px;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:rotate(45deg) scale(1)}
+    10%{transform:rotate(45deg) scale(1.12)}
+    20%{transform:rotate(45deg) scale(1)}
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    padding:110px 20px;
+    position:relative;
+}
+
+.container{
+    width:min(1000px,100%);
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-family:Cinzel,serif;
+    font-size:clamp(1.7rem,5vw,3rem);
+    margin-bottom:18px;
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:1.2rem;
+    margin-bottom:55px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    text-align:center;
+}
+
+.intro-card{
+    max-width:800px;
+    margin:auto;
+    padding:45px 30px;
+    border:1px solid var(--line);
+    background:linear-gradient(
+        145deg,
+        rgba(38,20,62,.65),
+        rgba(10,7,18,.72)
+    );
+    border-radius:30px;
+    box-shadow:0 20px 80px rgba(0,0,0,.35);
+}
+
+.intro-card p{
+    font-size:clamp(1.25rem,4vw,1.55rem);
+    line-height:1.8;
+    color:#e8dff1;
+}
+
+.highlight{
+    color:var(--pink);
+}
+
+.signature{
+    margin-top:30px;
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    letter-spacing:2px;
+}
+
+/* =========================
+   DIEZ RECUERDOS
+========================= */
+
+.memories{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.memory{
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:28px;
+    border-radius:22px;
+    cursor:pointer;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.memory:hover{
+    transform:translateY(-7px);
+    border-color:rgba(199,165,255,.45);
+    box-shadow:0 15px 50px rgba(100,50,180,.18);
+}
+
+.memory-number{
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    font-size:.75rem;
+    letter-spacing:3px;
+}
+
+.memory h3{
+    font-family:Cinzel,serif;
+    margin:13px 0;
+    font-size:1.05rem;
+}
+
+.memory p{
+    color:var(--muted);
+    font-size:1.08rem;
+    line-height:1.5;
+}
+
+.memory .secret{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:.5s;
+    color:#eadcff;
+    margin-top:0;
+}
+
+.memory.open .secret{
+    max-height:150px;
+    opacity:1;
+    margin-top:18px;
+}
+
+/* =========================
+   DIEZ RAZONES
+========================= */
+
+.reasons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.reason{
+    padding:30px;
+    border-radius:22px;
+    border:1px solid rgba(232,201,138,.15);
+    background:rgba(25,17,36,.55);
+    text-align:center;
+    transition:.4s;
+}
+
+.reason:hover{
+    transform:scale(1.025);
+    border-color:rgba(232,201,138,.4);
+}
+
+.reason span{
+    display:block;
+    color:var(--gold);
+    font-family:Cinzel,serif;
+    font-size:.7rem;
+    letter-spacing:3px;
+    margin-bottom:14px;
+}
+
+.reason p{
+    font-size:1.35rem;
+}
+
+/* =========================
+   CARTA OCULTA
+========================= */
+
+.letter-zone{
+    text-align:center;
+}
+
+.envelope{
+    width:min(330px,90vw);
+    height:220px;
+    margin:50px auto;
+    position:relative;
+    cursor:pointer;
+    perspective:1000px;
+}
+
+.env-body{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(145deg,#24123d,#130a21);
+    border:1px solid rgba(199,165,255,.3);
+    border-radius:12px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.env-flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#30194d;
+    clip-path:polygon(0 0,100% 0,50% 55%);
+    transform-origin:top;
+    transition:1s;
+    z-index:3;
+}
+
+.envelope.open .env-flap{
+    transform:rotateX(180deg);
+}
+
+.seal{
+    position:absolute;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:radial-gradient(circle,#ffb2e2,#8b4ec8);
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    box-shadow:0 0 25px rgba(255,143,216,.4);
+}
+
+.hidden-letter{
+    max-width:800px;
+    margin:0 auto;
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:1s;
+}
+
+.hidden-letter.visible{
+    max-height:1000px;
+    opacity:1;
+}
+
+.letter{
+    padding:40px 30px;
+    border-left:1px solid rgba(232,201,138,.35);
+    border-right:1px solid rgba(232,201,138,.35);
+}
+
+.letter p{
+    font-size:1.3rem;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.letter .closing{
+    color:var(--gold);
+    font-family:Cinzel,serif;
+    margin-top:35px;
+}
+
+/* =========================
+   FUTURO
+========================= */
+
+.future{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.future-card{
+    min-height:190px;
+    padding:30px;
+    border:1px solid var(--line);
+    border-radius:25px;
+    background:
+        radial-gradient(circle at top right,rgba(157,108,255,.15),transparent 45%),
+        rgba(15,9,25,.7);
+}
+
+.future-card h3{
+    font-family:Cinzel,serif;
+    color:var(--purple2);
+    margin-bottom:15px;
+}
+
+.future-card p{
+    font-size:1.2rem;
+    line-height:1.55;
+    color:#d9cde7;
+}
+
+/* =========================
+   PROMESA
+========================= */
+
+.promise{
+    text-align:center;
+}
+
+.promise-box{
+    max-width:850px;
+    margin:auto;
+    padding:55px 30px;
+    border-radius:35px;
+    border:1px solid rgba(255,143,216,.25);
+    background:
+        radial-gradient(circle,rgba(125,59,177,.18),transparent 60%),
+        rgba(15,8,23,.75);
+}
+
+.promise-box .quote{
+    font-size:clamp(1.45rem,4vw,2rem);
+    line-height:1.65;
+}
+
+.promise-box .big{
+    margin-top:30px;
+    font-family:Cinzel,serif;
+    color:var(--pink);
+    font-size:1.1rem;
+    letter-spacing:2px;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.final-content{
+    max-width:900px;
+}
+
+.final-number{
+    font-family:Cinzel,serif;
+    font-size:clamp(5rem,20vw,12rem);
+    color:rgba(199,165,255,.12);
+    line-height:.8;
+}
+
+.final h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(2rem,7vw,4.5rem);
+    margin:25px 0;
+}
+
+.final p{
+    font-size:1.35rem;
+    line-height:1.7;
+    color:#d6c9e5;
+}
+
+.secret-button{
+    margin-top:50px;
+    padding:16px 28px;
+    background:transparent;
+    border:1px solid rgba(232,201,138,.45);
+    color:var(--gold);
+    border-radius:100px;
+    font-family:Cinzel,serif;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.secret-button:hover{
+    background:rgba(232,201,138,.08);
+    box-shadow:0 0 30px rgba(232,201,138,.15);
+}
+
+.final-secret{
+    max-width:700px;
+    margin:35px auto 0;
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    transition:1.5s;
+}
+
+.final-secret.show{
+    opacity:1;
+    max-height:500px;
+}
+
+.final-secret p{
+    color:#fff;
+    font-size:1.5rem;
+}
+
+.end{
+    margin-top:35px;
+    font-family:Cinzel,serif;
+    color:var(--pink);
+    letter-spacing:2px;
+}
+
+/* =========================
+   BOTÓN ARRIBA
+========================= */
+
+.top{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid rgba(199,165,255,.3);
+    background:rgba(12,7,20,.8);
+    color:#fff;
+    cursor:pointer;
+    z-index:20;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:80px 16px;
+    }
+
+    .moon{
+        width:110px;
+        height:110px;
+        right:4%;
+        top:5%;
+    }
+
+    .moon:after{
+        width:105px;
+        height:105px;
+        left:25px;
+    }
+
+    .memories,
+    .reasons,
+    .future{
+        grid-template-columns:1fr;
+    }
+
+    .memory,
+    .reason,
+    .future-card{
+        padding:24px;
+    }
+
+    .intro-card{
+        padding:32px 22px;
+    }
+
+    .letter{
+        padding:32px 20px;
+    }
+
+    .letter p{
+        font-size:1.18rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+<div id="particles"></div>
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<header class="hero">
+
+    <div class="moon"></div>
+
+    <div class="hero-content">
+
+        <div class="small">
+            Una historia que todavía está comenzando
+        </div>
+
+        <h1>DIX FOIS TOI</h1>
+
+        <div class="subtitle">
+            Diez meses eligiéndote.
+        </div>
+
+        <div class="date">
+            17 · AGOSTO · 2026
+        </div>
+
+        <div class="hero-heart"></div>
+
+        <div class="small">
+            Para VALERIA PETRO VILLAZÓN
+        </div>
+
+        <div style="
+            color:#ffb4e5;
+            font-family:Cinzel,serif;
+            letter-spacing:2px;
+            font-size:.9rem;
+        ">
+            ✦ MON ÉTOILE D'AMBRE ✦
+        </div>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Diez meses.
+    </h2>
+
+    <p class="section-sub">
+        Pero para mí nunca fueron solamente diez meses.
+    </p>
+
+    <div class="intro-card">
+
+        <p>
+            Fueron <span class="highlight">diez meses de aprenderte</span>,
+            de descubrir tus ojos, tus besos, tus maneras,
+            tus silencios y hasta esas pequeñas cosas que quizá
+            tú ni siquiera notas.
+        </p>
+
+        <br>
+
+        <p>
+            Fueron noches que terminaron demasiado tarde,
+            conversaciones que parecían no tener final,
+            besos que nos hicieron olvidar el tiempo,
+            discusiones que nos hicieron aprender,
+            salidas que todavía guardo dentro de mí
+            y momentos en los que simplemente estar contigo
+            hizo que todo pareciera estar exactamente donde debía.
+        </p>
+
+        <br>
+
+        <p>
+            Y si alguien me preguntara qué fue lo mejor de estos
+            diez meses, probablemente no podría elegir un solo momento.
+        </p>
+
+        <br>
+
+        <p>
+            Porque mi respuesta siempre terminaría siendo la misma:
+            <br>
+            <strong class="highlight">
+                tú.
+            </strong>
+        </p>
+
+        <div class="signature">
+            Para mi Mon Étoile d'Ambre.
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DIEZ RECUERDOS
+========================= -->
+
+<section>
+
+<div class="container">
+
+    <h2 class="section-title">
+        ✦ Diez recuerdos que guardo de nosotros ✦
+    </h2>
+
+    <p class="section-sub">
+        Toca cada recuerdo. Algunos todavía tienen algo que decirte.
+    </p>
+
+    <div class="memories">
+
+        <div class="memory">
+            <div class="memory-number">01 · EL PRIMER TEMBLOR</div>
+            <h3>Nuestro primer beso</h3>
+            <p>
+                Ese nerviosismo que apareció justo antes de descubrir
+                que nuestros labios podían contar una historia.
+            </p>
+            <div class="secret">
+                Y quizá fue nervioso porque ninguno de los dos sabía
+                que aquel beso terminaría siendo el primero de tantos.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">02 · LA PRIMERA CARTA</div>
+            <h3>Tu reacción</h3>
+            <p>
+                El momento en que descubrí que mis palabras podían
+                llegar hasta una parte de ti.
+            </p>
+            <div class="secret">
+                Desde entonces entendí que escribirte no era solamente
+                escribir. Era otra manera de abrazarte cuando no podía hacerlo.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">03 · SIN NADIE MÁS</div>
+            <h3>Nuestra primera salida tranquilos</h3>
+            <p>
+                Tú y yo. Sin necesitar nada extraordinario.
+            </p>
+            <div class="secret">
+                Porque contigo aprendí que una salida sencilla puede
+                convertirse en un recuerdo enorme.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">04 · CADA VEZ MÁS</div>
+            <h3>Las salidas preparadas</h3>
+            <p>
+                Esas veces en que sabíamos que íbamos a vernos
+                y todo parecía un poquito más emocionante.
+            </p>
+            <div class="secret">
+                Me encanta recordar que hubo días que esperábamos
+                con ilusión simplemente porque significaban estar juntos.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">05 · HORAS SIN PRISA</div>
+            <h3>Nuestras noches de preguntas</h3>
+            <p>
+                Pregunta tras pregunta, descubriendo partes nuevas
+                de nosotros.
+            </p>
+            <div class="secret">
+                Y probablemente podría seguir preguntándote cosas
+                durante toda la vida y todavía encontraría algo nuevo.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">06 · HASTA QUE NO PODÍAMOS MÁS</div>
+            <h3>Las llamadas interminables</h3>
+            <p>
+                Esas noches en las que ninguno quería ser quien dijera
+                primero “ya tenemos que dormir”.
+            </p>
+            <div class="secret">
+                Porque incluso cuando el sueño llegaba,
+                hablar contigo seguía pareciendo mejor idea.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">07 · LO QUE APRENDIMOS</div>
+            <h3>Nuestras discusiones</h3>
+            <p>
+                Incluso aquellas que nacieron de mis celos.
+            </p>
+            <div class="secret">
+                No quiero romantizar nuestras dificultades.
+                Quiero recordar que también aprendimos de ellas,
+                y que amar también significa aprender a hacerlo mejor.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">08 · EL TIEMPO SE DETUVO</div>
+            <h3>Aquel salón</h3>
+            <p>
+                Cuando estábamos solos y los besos hicieron que
+                por unos minutos el mundo dejara de importar.
+            </p>
+            <div class="secret">
+                Hasta que tuvimos que frenar...
+                aunque ninguno de los dos quería hacerlo.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">09 · LUGARES INESPERADOS</div>
+            <h3>Aquel baño</h3>
+            <p>
+                Porque algunos recuerdos nacen precisamente
+                donde jamás imaginaste que lo harían.
+            </p>
+            <div class="secret">
+                Y terminó siendo uno de esos pequeños secretos
+                que ahora forman parte de nuestra historia.
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-number">10 · MI FAVORITO</div>
+            <h3>Todos nuestros cines</h3>
+            <p>
+                No puedo elegir uno.
+            </p>
+            <div class="secret">
+                Porque si tuviera que escoger mi favorito,
+                tendría que escogerlos todos.
+                No por la película.
+                Por quién estaba sentado a mi lado.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DIEZ COSAS QUE AMO
+========================= -->
+
+<section>
+
+<div class="container">
+
+    <h2 class="section-title">
+        ✦ Diez veces que mi corazón te elige ✦
+    </h2>
+
+    <p class="section-sub">
+        Y solamente cuatro necesitan explicación.
+    </p>
+
+    <div class="reasons">
+
+        <div class="reason">
+            <span>01</span>
+            <p>Amo tus ojos.</p>
+        </div>
+
+        <div class="reason">
+            <span>02</span>
+            <p>Amo tus besos.</p>
+        </div>
+
+        <div class="reason">
+            <span>03</span>
+            <p>Amo tu forma de ser.</p>
+        </div>
+
+        <div class="reason">
+            <span>04</span>
+            <p>Amo absolutamente todo de mi Mon Étoile d'Ambre.</p>
+        </div>
+
+        <div class="reason">
+            <span>05</span>
+            <p>Amo cuando simplemente eres tú.</p>
+        </div>
+
+        <div class="reason">
+            <span>06</span>
+            <p>Amo cada conversación que se alarga más de lo previsto.</p>
+        </div>
+
+        <div class="reason">
+            <span>07</span>
+            <p>Amo cada momento en que conseguimos volver a encontrarnos.</p>
+        </div>
+
+        <div class="reason">
+            <span>08</span>
+            <p>Amo la manera en que haces especiales los días normales.</p>
+        </div>
+
+        <div class="reason">
+            <span>09</span>
+            <p>Amo todo lo que todavía no conocemos de nuestra historia.</p>
+        </div>
+
+        <div class="reason">
+            <span>10</span>
+            <p>Amo que, después de diez meses, todavía quiera más de nosotros.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section class="letter-zone">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Hay algo que solamente puedes abrir tú
+    </h2>
+
+    <p class="section-sub">
+        No lo abras hasta que estés lista.
+    </p>
+
+    <div class="envelope" onclick="openLetter(this)">
+
+        <div class="env-body"></div>
+        <div class="env-flap"></div>
+
+        <div class="seal">
+            ♥
+        </div>
+
+    </div>
+
+    <div class="hidden-letter" id="letter">
+
+        <div class="letter">
+
+            <p>
+                Mi querida <strong>VALERIA PETRO VILLAZÓN</strong>:
+            </p>
+
+            <p>
+                Hoy cumplimos diez meses.
+                Y mientras pienso en todo lo que ha ocurrido,
+                me doy cuenta de algo que quizá nunca te dije
+                de la manera correcta:
+                no solamente me enamoré de ti.
+            </p>
+
+            <p>
+                Me enamoré de la historia que comenzó a existir
+                desde que apareciste.
+            </p>
+
+            <p>
+                De nuestros nervios.
+                De nuestras risas.
+                De nuestros besos.
+                De nuestras llamadas.
+                De nuestras preguntas.
+                De nuestras salidas.
+                Incluso de los momentos difíciles que nos obligaron
+                a aprender a querernos mejor.
+            </p>
+
+            <p>
+                Y si pudiera regresar al principio,
+                justo antes de aquel primer beso,
+                sabiendo todo lo que vendría después,
+                volvería a acercarme a ti.
+            </p>
+
+            <p>
+                Volvería a elegirte.
+            </p>
+
+            <p>
+                Porque diez meses después,
+                todavía existe una parte de mí que se pone nerviosa
+                cuando piensa en ti de la misma manera en que se puso
+                nerviosa aquella primera vez.
+            </p>
+
+            <p>
+                Y eso me parece precioso.
+            </p>
+
+            <p>
+                Porque significa que después de todo este tiempo,
+                mi corazón todavía sabe reconocerte como
+                alguien extraordinario.
+            </p>
+
+            <p class="closing">
+                Feliz décimo mesiversario,
+                mi Mon Étoile d'Ambre.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FUTURO
+========================= -->
+
+<section>
+
+<div class="container">
+
+    <h2 class="section-title">
+        ✦ Lo que todavía quiero vivir contigo ✦
+    </h2>
+
+    <p class="section-sub">
+        Diez meses son importantes. Pero no son el final.
+    </p>
+
+    <div class="future">
+
+        <div class="future-card">
+            <h3>01 · Un hogar</h3>
+            <p>
+                Algún día quiero vivir contigo.
+                Tener un lugar que podamos llamar nuestro
+                y descubrir cómo se siente compartir la vida
+                más allá de unas cuantas horas.
+            </p>
+        </div>
+
+        <div class="future-card">
+            <h3>02 · Sin secretos</h3>
+            <p>
+                Quiero llegar al día en que podamos vivir nuestra relación
+                sin tener que esconderla y podamos querer-nos
+                con tranquilidad frente a tu familia.
+            </p>
+        </div>
+
+        <div class="future-card">
+            <h3>03 · Tus lugares favoritos</h3>
+            <p>
+                Quiero viajar contigo.
+                Quiero conocer cada lugar que alguna vez soñaste visitar
+                y descubrir por qué significa tanto para ti.
+            </p>
+        </div>
+
+        <div class="future-card">
+            <h3>04 · Tus sueños</h3>
+            <p>
+                Quiero estar presente mientras completas cada sueño
+                que te propongas, celebrando tus victorias
+                como si fueran también un poquito mías.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROMESA
+========================= -->
+
+<section class="promise">
+
+<div class="container">
+
+    <h2 class="section-title">
+        ✦ La promesa de los diez meses ✦
+    </h2>
+
+    <div class="promise-box">
+
+        <p class="quote">
+            No te prometo que todos nuestros días serán perfectos.
+            <br><br>
+            Te prometo algo que para mí vale mucho más:
+            que cuando la vida nos ponga días difíciles,
+            siempre voy a querer encontrar la manera
+            de volver a encontrarnos.
+        </p>
+
+        <div class="big">
+            Porque todavía quiero descubrir contigo
+            todos los meses que nos faltan.
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+<div class="final-content">
+
+    <div class="final-number">
+        10
+    </div>
+
+    <div class="small">
+        Diez meses después...
+    </div>
+
+    <h2>
+        Todavía te elegiría.
+    </h2>
+
+    <p>
+        Y si diez meses pudieron convertirse en todo esto,
+        me emociona imaginar lo que podremos construir
+        cuando la historia llegue a los veinte,
+        a los treinta,
+        a los cien...
+    </p>
+
+    <button class="secret-button" onclick="revealFinal()">
+        ABRIR EL ÚLTIMO SECRETO
+    </button>
+
+    <div class="final-secret" id="finalSecret">
+
+        <p>
+            Si alguna vez vuelves a esta página dentro de muchos años,
+            quiero que recuerdes algo:
+        </p>
+
+        <br>
+
+        <p>
+            <strong>
+                Este no fue el día en que celebramos haber llegado
+                a diez meses.
+            </strong>
+        </p>
+
+        <br>
+
+        <p>
+            Fue el día en que miré todo lo que habíamos vivido
+            y pensé:
+        </p>
+
+        <br>
+
+        <p style="color:#ffb1e3;">
+            “Quiero seguir escribiendo esta historia contigo.”
+        </p>
+
+        <div class="end">
+            ✦ FIN DEL CAPÍTULO X ✦
+            <br><br>
+            ∞
+            <br><br>
+            PERO NO DE NUESTRA HISTORIA.
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+
+<script>
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<230;i++){
+
+    const s=document.createElement("div");
+
+    s.className="star";
+
+    s.style.left=Math.random()*100+"%";
+    s.style.top=Math.random()*100+"%";
+
+    s.style.animationDelay=(Math.random()*4)+"s";
+    s.style.animationDuration=(2+Math.random()*4)+"s";
+
+    const size=.7+Math.random()*2;
+
+    s.style.width=size+"px";
+    s.style.height=size+"px";
+
+    stars.appendChild(s);
+}
+
+
+/* =========================
+   PARTÍCULAS
+========================= */
+
+const particles=document.getElementById("particles");
+
+for(let i=0;i<25;i++){
+
+    const p=document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left=Math.random()*100+"%";
+    p.style.animationDuration=(8+Math.random()*14)+"s";
+    p.style.animationDelay=Math.random()*12+"s";
+
+    particles.appendChild(p);
+}
+
+
+/* =========================
+   RECUERDOS
+========================= */
+
+document.querySelectorAll(".memory").forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        card.classList.toggle("open");
+
+    });
+
+});
+
+
+/* =========================
+   SOBRE
+========================= */
+
+function openLetter(el){
+
+    el.classList.toggle("open");
+
+    setTimeout(()=>{
+
+        document.getElementById("letter")
+            .classList.add("visible");
+
+    },500);
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+function revealFinal(){
+
+    const secret=document.getElementById("finalSecret");
+
+    secret.classList.add("show");
+
+    setTimeout(()=>{
+
+        secret.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },300);
+
+}
+
+
+/* =========================
+   EFECTO DE APARICIÓN
+========================= */
+
+const observer=new IntersectionObserver(
+
+    entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity="1";
+                entry.target.style.transform="translateY(0)";
+
+            }
+
+        });
+
+    },
+
+    {threshold:.12}
+
+);
+
+document.querySelectorAll(
+    ".memory,.reason,.future-card,.intro-card,.promise-box"
+).forEach(el=>{
+
+    el.style.opacity="0";
+    el.style.transform="translateY(25px)";
+    el.style.transition="opacity .8s ease, transform .8s ease";
+
+    observer.observe(el);
+
+});
+
+
+/* =========================
+   CORAZONES AL TOCAR
+========================= */
+
+document.addEventListener("click",e=>{
+
+    if(e.target.closest("button") ||
+       e.target.closest(".memory") ||
+       e.target.closest(".envelope")){
+
+        return;
+    }
+
+    const heart=document.createElement("div");
+
+    heart.innerHTML="♥";
+
+    heart.style.position="fixed";
+    heart.style.left=e.clientX+"px";
+    heart.style.top=e.clientY+"px";
+    heart.style.color="#ff8fd8";
+    heart.style.fontSize=(12+Math.random()*12)+"px";
+    heart.style.pointerEvents="none";
+    heart.style.zIndex="100";
+
+    document.body.appendChild(heart);
+
+    heart.animate([
+
+        {
+            transform:"translate(-50%,-50%) scale(.5)",
+            opacity:0
+        },
+
+        {
+            transform:"translate(-50%,-100px) scale(1.2)",
+            opacity:1
+        },
+
+        {
+            transform:"translate(-50%,-170px) scale(.5)",
+            opacity:0
+        }
+
+    ],{
+
+        duration:1300,
+        easing:"ease-out"
+
+    }).onfinish=()=>heart.remove();
+
+});
+
+</script>
+
+</body>
+  </html>
